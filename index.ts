@@ -1,9 +1,7 @@
-import http, { IncomingMessage, ServerResponse } from "http";
+import http, { IncomingMessage, ServerResponse } from 'http'
 
-const server = http.createServer(
-  (req: IncomingMessage, res: ServerResponse) => {
-    res.end("OK");
-  }
-);
+const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
+  res.end('OK')
+})
 
-server.listen(4000);
+server.listen(4000)
