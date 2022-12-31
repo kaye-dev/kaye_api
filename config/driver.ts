@@ -12,10 +12,15 @@ export type PostgresConnectionOptions = {
   }
 }
 
-const call = async (host: number, port: string): Promise<void> => {
+const call = async (path: string): Promise<void> => {
   const client = new net.Socket()
-  await client.connect(host, port, function () {
-    console.log('接続: ' + host + ':' + port)
+  // await client.connect(host, port, function () {
+  //   console.log('接続: ' + host + ':' + port)
+  //   client.write('ハロー')
+  // })
+
+  await client.connect(path, function () {
+    console.log('接続: ' + path)
 
     // サーバーへメッセージを送信
     client.write('ハロー')
@@ -33,7 +38,7 @@ const call = async (host: number, port: string): Promise<void> => {
 }
 
 // psql -h localhost -p 5339 -U kaye -d mydb
-call(5339, '<your-db-server-name>.postgres.database.azure.com')
+call('localhost:5339/mydb')
 
 /**  FYI
  * Node.js で TCP/IP クライアントを作る
