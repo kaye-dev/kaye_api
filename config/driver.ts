@@ -1,4 +1,6 @@
 import net from 'net'
+import { TlsOptions } from 'tls'
+
 export type PostgresConnectionOptions = {
   client: 'postgres'
   connection: {
@@ -6,6 +8,7 @@ export type PostgresConnectionOptions = {
     database: string // db name
     username: string // db username
     password: string // db password
+    ssl: boolean | TlsOptions // object with ssl parameters
   }
 }
 
@@ -29,9 +32,11 @@ const call = async (host: number, port: string): Promise<void> => {
   })
 }
 
-call(5439, '127.0.0.1')
+call(5439, '<your-db-server-name>.postgres.database.azure.com')
 
 /**  FYI
  * Node.js で TCP/IP クライアントを作る
  * http://dotnsf.blog.jp/archives/1070761196.html
+ * pg クライアントのインストール
+ * https://learn.microsoft.com/ja-jp/azure/postgresql/single-server/connect-nodejs
  */
