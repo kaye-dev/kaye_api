@@ -30,3 +30,5 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
 })
 
 server.listen(4000)
+
+// FYI: https://learn.microsoft.com/ja-jp/sql/connect/node-js/step-3-proof-of-concept-connecting-to-sql-using-node-js?view=sql-server-ver16
