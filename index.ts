@@ -1,9 +1,6 @@
-import http, { IncomingMessage, ServerResponse } from 'http'
-import tedious from 'tedious'
+import { Connection } from 'tedious'
 
-const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
-  res.end('OK')
-
+const server = (): void => {
   const config = {
     server: 'localhost',
     authentication: {
@@ -16,10 +13,11 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
     options: {
       encrypt: true,
       database: 'mydb',
+      port: 5339,
     },
   }
 
-  const connection = new tedious.Connection(config)
+  const connection = new Connection(config)
   console.log('connection start')
   connection.on('connect', function (err) {
     // If no error, then good to proceed.
@@ -27,8 +25,7 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
   })
 
   connection.connect()
-})
-
-server.listen(4000)
+}
+server()
 
 // FYI: https://learn.microsoft.com/ja-jp/sql/connect/node-js/step-3-proof-of-concept-connecting-to-sql-using-node-js?view=sql-server-ver16

@@ -15,14 +15,14 @@
     "format": "eslint --fix . --ext .js,.ts,.tsx --fix --cache",
     "eslint": "npm run format && npm run lint",
     "typecheck": "tsc",
-    "build": "npm run format && npm run lint",
-    "start": "npm run format && npm run lint"
+    "build": "ts-node index.ts",
+    "start": "tsc --watch index.ts"
   },
   "engines": {
     "node": "14"
   },
   "dependencies": {
-    "@types/tedious": "^4.0.9"
+    "tedious": "^15.1.2"
   },
   "devDependencies": {
     "@types/node": "^14.18.32",
@@ -34,6 +34,8 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.1",
     "prettier": "^2.4.1",
+    "ts-node": "^10.9.1",
+    "@types/tedious": "^4.0.9",
     "typescript": "^4.8.4"
   }
 }
