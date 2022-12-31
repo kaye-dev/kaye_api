@@ -32,7 +32,8 @@ const call = async (host: number, port: string): Promise<void> => {
   })
 }
 
-call(5439, '<your-db-server-name>.postgres.database.azure.com')
+// psql -h localhost -p 5339 -U kaye -d mydb
+call(5339, '<your-db-server-name>.postgres.database.azure.com')
 
 /**  FYI
  * Node.js で TCP/IP クライアントを作る

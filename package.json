@@ -2,7 +2,7 @@
   "name": "kaye-web",
   "version": "0.0.1",
   "repository": "git@github.com:n-kaye/kayeapi.git",
-  "author" :{
+  "author": {
     "name": "keien-nishikawa",
     "email": "keien.nishikawa.developer@gmail.com",
     "url": "git@github.com:n-kaye/kayeapi.git"
@@ -14,7 +14,9 @@
     "lint": "eslint src . --ext .js,.ts,.tsx --cache",
     "format": "eslint --fix . --ext .js,.ts,.tsx --fix --cache",
     "eslint": "npm run format && npm run lint",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "build": "npm run format && npm run lint",
+    "start": "npm run format && npm run lint"
   },
   "engines": {
     "node": "14"
