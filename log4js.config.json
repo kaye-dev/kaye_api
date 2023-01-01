@@ -8,6 +8,11 @@
       "filename": "logs/system.log",
       "pattern": "-yyyy-MM-dd"
     },
+    "access": {
+      "type": "dateFile",
+      "filename": "logs/access.log",
+      "pattern": "-yyyy-MM-dd"
+    },
     "error": {
       "type": "dateFile",
       "filename": "logs/error.log",
@@ -17,6 +22,10 @@
   "categories": {
     "default": {
       "appenders": ["console", "system"],
+      "level": "all"
+    },
+    "access": {
+      "appenders": ["console", "access"],
       "level": "all"
     },
     "error": {
