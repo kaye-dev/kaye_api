@@ -6,6 +6,10 @@ addLayout('json', function (config) {
   };
 });
 
+/** ログファイルの使い分け
+ * 基本的なログは access.log に記録する
+ * error.log は、クリティカルなエラーの場合に記録される
+ */
 configure({
   appenders: {
     console: {
@@ -28,6 +32,10 @@ configure({
     default: {
       appenders: ['console', 'access', 'error'],
       level: 'all',
+    },
+    error: {
+      appenders: ['console', 'error'],
+      level: 'warn',
       enableCallStack: true,
     },
   },
