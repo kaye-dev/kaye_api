@@ -14,6 +14,7 @@ configure({
   appenders: {
     console: {
       type: 'console',
+      layout: { type: 'json', separator: ',' },
     },
     access: {
       type: 'dateFile',
