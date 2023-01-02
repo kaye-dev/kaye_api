@@ -9,6 +9,8 @@ addLayout('json', function (config) {
 /** ログファイルの使い分け
  * 基本的なログは access.log に記録する
  * error.log は、クリティカルなエラーの場合に記録される
+ * FYI
+ * https://qiita.com/mabasasi/items/f392740e3d193ed93863 : log4js-node の使い方【v5.2.2】
  */
 configure({
   appenders: {
