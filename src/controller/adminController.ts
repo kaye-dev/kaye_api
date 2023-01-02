@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { getLogger } from 'log4js';
 import { address } from 'ip';
 import { accessLogger, systemLogger } from '../config/logger';
 

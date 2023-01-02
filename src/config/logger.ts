@@ -1,5 +1,4 @@
 import { getLogger } from 'log4js';
-import fs from 'fs';
 export const systemLogger = getLogger('system');
 export const accessLogger = getLogger('access');
 export const errorLogger = getLogger('error');
@@ -10,17 +9,4 @@ export const getReferer = (referer?: string): string => {
 
 export const controllerLogFormat = (controllerAction: string, ip: string, referer: string): string => {
   return `controller\n[Controller]: ${controllerAction}\n[IP] ${ip}\n[Referer] ${referer}`;
-};
-
-export const countLines = function (filePath, callback) {
-  // function copied from http://stackoverflow.com/questions/12453057/node-js-count-the-number-of-lines-in-a-file
-  // with very few modifications
-  let i;
-  let count = 0;
-  fs.createReadStream(filePath)
-    .on('error', (e) => callback(e))
-    .on('data', (chunk) => {
-      for (i = 0; i < chunk.length; ++i) if (chunk[i] == 10) count++;
-    })
-    .on('end', () => callback(null, count));
 };
