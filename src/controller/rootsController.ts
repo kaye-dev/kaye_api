@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import { address } from 'ip';
-import { accessLogger, systemLogger } from '../config/logger';
+import { getLogger } from 'log4js';
+import { loggerKind } from '../config/logger';
 
 export const rootsController = (_req: Request, res: Response) => {
-  accessLogger.info(address(), _req.headers.referer, 'rootsController');
-  systemLogger.info('success!');
+  getLogger(loggerKind.access).info(address(), _req.headers.referer, 'rootsController');
 
   return res.status(200).send({
     message: 'rootsController',
