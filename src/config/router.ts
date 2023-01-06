@@ -20,5 +20,6 @@ app.get('/admins', adminsController);
 app.get('/roots', rootsController);
 
 app.get('/', function (_req: Request, res: Response) {
-  res.send('Hello from API::V1 root route');
+  getLogger(loggerKind.error).error('root::path', 'Not Found');
+  res.status(404).send('Not Found');
 });
