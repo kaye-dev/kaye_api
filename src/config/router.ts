@@ -20,6 +20,6 @@ app.get('/admins', adminsController);
 app.get('/roots', rootsController);
 
 app.get('/', function (_req: Request, res: Response) {
-  getLogger(loggerKind.error).error('root::path', 'Not Found');
+  getLogger(loggerKind.access).error('root::path', 'Not Found');
   res.status(404).send('Not Found');
 });
