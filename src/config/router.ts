@@ -17,9 +17,9 @@ app.use((req: Request, _: Response, next) => {
   next();
 });
 
-app.get('/users', usersController);
-app.get('/admins', adminsController);
-app.get('/roots', rootsController);
+app.get('/v1/users', usersController);
+app.get('/v1/admins', adminsController);
+app.get('/v1/roots', rootsController);
 
 app.get('/', function (req: Request, res: Response) {
   getLogger(loggerKind.access).error(

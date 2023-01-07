@@ -3,8 +3,8 @@ import { app } from './config/router';
 import './config/loggers/config';
 
 const PORT = 3000;
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 try {
   app.listen(PORT, () => {
