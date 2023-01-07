@@ -11,7 +11,9 @@ export const app: Application = express();
 
 // 全リクエスト対象::logging
 app.use((req: Request, _: Response, next) => {
-  getLogger(loggerKind.access).info(address(), req.headers.referer, 'request::logging');
+  getLogger(loggerKind.access).info(
+    `request::logging\n[req:url]: ${req.originalUrl}\n[ip]: ${address()},\n[referer]: ${req.headers.referer}`,
+  );
   next();
 });
 
