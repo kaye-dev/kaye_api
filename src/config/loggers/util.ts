@@ -1,24 +1,29 @@
 import { loggingDate } from '../../util/dataFormat';
-export const loggerKind = {
-  access: 'access',
-  error: 'error',
-};
 
-/** NOTE
- * cloudwatch や cloud loggingで event_id を生成してくれるため不要
- */
-export type LogInfo = {
+export type AccessLogInfo = {
+  /**
+   * cloudwatch や cloud loggingで event_id を生成してくれるため不要
+   */
   // event_id: string;
   event_at: string;
-  // request info
+  /**
+   * request info
+   */
   url: string;
   method: 'GET' | 'POST' | 'UPDATE' | 'DELETE';
   ip: string;
   referer: string;
   params: { [key: string]: string };
-  // user info
+  /**
+   * user info
+   */
   is_signed: boolean;
   user_id: boolean;
+};
+
+export const loggerKind = {
+  access: 'access',
+  error: 'error',
 };
 
 export const logging = (logs: { [key: string]: string }) => {
