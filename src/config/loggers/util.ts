@@ -3,12 +3,22 @@ export const loggerKind = {
   access: 'access',
   error: 'error',
 };
-export const getReferer = (referer?: string): string => {
-  return referer ? `referer: ${referer}` : 'referer: -';
-};
 
-export const controllerLogFormat = (controllerAction: string, ip: string, referer: string): string => {
-  return `controller\n[Controller]: ${controllerAction}\n[IP] ${ip}\n[Referer] ${referer}`;
+/** NOTE
+ * cloudwatch や cloud loggingで event_id を生成してくれるため不要
+ */
+export type LogInfo = {
+  // event_id: string;
+  event_at: string;
+  // request info
+  url: string;
+  method: 'GET' | 'POST' | 'UPDATE' | 'DELETE';
+  ip: string;
+  referer: string;
+  params: { [key: string]: string };
+  // user info
+  is_signed: boolean;
+  user_id: boolean;
 };
 
 export const logging = (logs: { [key: string]: string }) => {
