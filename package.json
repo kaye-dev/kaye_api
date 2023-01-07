@@ -1,5 +1,5 @@
 {
-  "name": "kaye-api",
+  "name": "kaye_api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -11,7 +11,10 @@
     "dev:nodemon": "nodemon  --exec ts-node src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "rm:logs": "rm -r logs"
+    "prepare": "husky install",
+    "lint": "eslint src . --ext .js,.ts,.tsx --cache",
+    "format": "eslint --fix . --ext .js,.ts,.tsx --fix --cache",
+    "eslint": "npm run format && npm run lint"
   },
   "engines": {
     "node": "16"
@@ -25,7 +28,15 @@
     "@types/express": "^4.17.15",
     "@types/ip": "^1.1.0",
     "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.1",
     "nodemon": "^2.0.20",
+    "prettier": "^2.4.1",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.4"
