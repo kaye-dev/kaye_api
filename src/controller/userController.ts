@@ -36,7 +36,7 @@ export class UserControllerImpl implements UserController {
       created_date: '2020-10-25 12:30:18',
       updated_date: '2020-10-25 12:30:18',
     };
-    logging(logs);
+    logging(logs, 'error');
     return res.status(200).json(logs);
   }
   async create(req: Request, res: Response) {

@@ -34,7 +34,7 @@ export class AdminControllerImpl implements AdminController {
     console.log(`ip: ${req.ip}`);
     console.log(`protocol: ${req.protocol}`);
 
-    return res.status(200).send({
+    return res.status(200).json({
       id: 'uid_0001',
       family_name: 'justin',
       first_name: 'kaye',
