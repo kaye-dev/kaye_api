@@ -21,7 +21,11 @@ app.get('/users', usersController);
 app.get('/admins', adminsController);
 app.get('/roots', rootsController);
 
-app.get('/', function (_req: Request, res: Response) {
-  getLogger(loggerKind.access).error('root::path', 'Not Found');
+app.get('/', function (req: Request, res: Response) {
+  getLogger(loggerKind.access).error(
+    `request::logging\n[req:url]: ${req.originalUrl}\n[ip]: ${address()}\n[referer]: ${
+      req.headers.referer
+    }\n[error]: Not Found`,
+  );
   res.status(404).send('Not Found');
 });
