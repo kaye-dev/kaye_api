@@ -43,8 +43,3 @@ app.get('/', function (req: Request, res: Response) {
   );
   res.status(404).send('Not Found');
 });
-
-/**
- * express 入門
- * https://www.wakuwakubank.com/posts/632-nodejs-express-overview/#index_id2
- */
