@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import { usersController } from '../controller/userController';
 import { AdminControllerImpl } from '../controller/adminController';
-import { rootsController } from '../controller/rootsController';
 import { address } from 'ip';
 import { getLogger } from 'log4js';
 import { loggerKind } from './loggers/util';
@@ -21,7 +20,6 @@ app.use((req: Request, _: Response, next) => {
 
 app.get('/v1/users', usersController);
 app.get('/v1/admins', adminController.fetch);
-app.get('/v1/roots', rootsController);
 
 app.get('/', function (req: Request, res: Response) {
   getLogger(loggerKind.access).error(
