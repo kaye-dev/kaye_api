@@ -25,6 +25,15 @@ export class AdminControllerImpl implements AdminController {
   async getById(req: Request, res: Response) {
     console.log(`req.params.id: ${req.params.id}`);
 
+    console.log(`hostname: ${req.hostname}`);
+    console.log(`baseUrl: ${req.baseUrl}`);
+    console.log(`originalUrl: ${req.originalUrl}`);
+    console.log(`method: ${req.method}`);
+    console.log(`path: ${req.path}`);
+    console.log(`route: ${req.route}`);
+    console.log(`ip: ${req.ip}`);
+    console.log(`protocol: ${req.protocol}`);
+
     return res.status(200).send({
       id: 'uid_0001',
       family_name: 'justin',
