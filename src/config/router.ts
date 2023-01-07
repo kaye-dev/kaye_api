@@ -1,14 +1,14 @@
 import express, { Application, Request, Response } from 'express';
-import { usersController } from '../controller/userController';
 import { AdminControllerImpl } from '../controller/adminController';
+import { UserControllerImpl } from '../controller/userController';
 import { address } from 'ip';
 import { getLogger } from 'log4js';
 import { loggerKind } from './loggers/util';
 
 // controllers
 const adminController = new AdminControllerImpl();
+const userController = new UserControllerImpl();
 
-// FYI: https://www.wakuwakubank.com/posts/632-nodejs-express-overview/#index_id2
 export const app: Application = express();
 
 // 全リクエスト対象::logging
@@ -19,8 +19,17 @@ app.use((req: Request, _: Response, next) => {
   next();
 });
 
-app.get('/v1/users', usersController);
+// fetch
+app.get('/v1/users', userController.fetch);
 app.get('/v1/admins', adminController.fetch);
+
+// getById
+
+// create
+
+// update
+
+// destroy
 
 app.get('/', function (req: Request, res: Response) {
   getLogger(loggerKind.access).error(
@@ -30,3 +39,8 @@ app.get('/', function (req: Request, res: Response) {
   );
   res.status(404).send('Not Found');
 });
+
+/**
+ * express 入門
+ * https://www.wakuwakubank.com/posts/632-nodejs-express-overview/#index_id2
+ */
