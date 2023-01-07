@@ -24,6 +24,8 @@ app.get('/v1/users', userController.fetch);
 app.get('/v1/admins', adminController.fetch);
 
 // getById
+app.get('/v1/users/:id', userController.getById);
+app.get('/v1/admins/:id', adminController.getById);
 
 // create
 

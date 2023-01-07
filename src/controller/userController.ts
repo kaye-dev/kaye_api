@@ -23,6 +23,8 @@ export class UserControllerImpl implements UserController {
     ]);
   }
   async getById(req: Request, res: Response) {
+    console.log(`req.params.id: ${req.params.id}`);
+
     return res.status(200).send({
       id: 'uid_0001',
       family_name: 'justin',
