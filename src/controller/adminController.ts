@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { AdminController } from '../domain/controller/adminController';
+import { AdminController } from '../domain/controller/AdminController';
 
 export class AdminControllerImpl implements AdminController {
   async fetch(req: Request, res: Response) {
