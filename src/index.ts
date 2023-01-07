@@ -1,13 +1,13 @@
 import express from 'express';
-import { app } from './config/router';
+import { App } from './config/router';
 import './config/loggers/config';
 
 const PORT = 3000;
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+App.use(express.urlencoded({ extended: true }));
+App.use(express.json());
 
 try {
-  app.listen(PORT, () => {
+  App.listen(PORT, () => {
     console.log(`dev server running at: http://localhost:${PORT}/`);
   });
 } catch (e) {

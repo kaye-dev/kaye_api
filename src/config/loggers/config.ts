@@ -1,7 +1,7 @@
 import { addLayout, configure } from 'log4js';
 
 addLayout('json', function (config) {
-  return function (logEvent) {
+  return function (logEvent): string {
     return JSON.stringify(logEvent, null, 2) + config.separator;
   };
 });
