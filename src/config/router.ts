@@ -1,10 +1,12 @@
 import express, { Application, Request, Response } from 'express';
 import { usersController } from '../controller/userController';
-import { adminsController } from '../controller/adminController';
+import { AdminControllerImpl } from '../controller/adminController';
 import { rootsController } from '../controller/rootsController';
 import { address } from 'ip';
 import { getLogger } from 'log4js';
 import { loggerKind } from './loggers/util';
+
+const adminController = new AdminControllerImpl();
 
 // FYI: https://www.wakuwakubank.com/posts/632-nodejs-express-overview/#index_id2
 export const app: Application = express();
@@ -18,7 +20,7 @@ app.use((req: Request, _: Response, next) => {
 });
 
 app.get('/v1/users', usersController);
-app.get('/v1/admins', adminsController);
+app.get('/v1/admins', adminController.fetch);
 app.get('/v1/roots', rootsController);
 
 app.get('/', function (req: Request, res: Response) {
