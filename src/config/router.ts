@@ -4,7 +4,7 @@ import { adminsController } from '../controller/adminController';
 import { rootsController } from '../controller/rootsController';
 import { address } from 'ip';
 import { getLogger } from 'log4js';
-import { loggerKind } from '../config/logger';
+import { loggerKind } from './loggers/functions';
 
 // FYI: https://www.wakuwakubank.com/posts/632-nodejs-express-overview/#index_id2
 export const app: Application = express();
