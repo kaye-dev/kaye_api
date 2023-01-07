@@ -23,6 +23,12 @@ configure({
       pattern: '-yyyy-MM-dd',
       layout: { type: 'json', separator: ',' },
     },
+    system: {
+      type: 'dateFile',
+      filename: 'logs/system.log',
+      pattern: '-yyyy-MM-dd',
+      layout: { type: 'json', separator: ',' },
+    },
     error: {
       type: 'dateFile',
       filename: 'logs/error.log',
@@ -32,7 +38,7 @@ configure({
   },
   categories: {
     default: {
-      appenders: ['console', 'access', 'error'],
+      appenders: ['console', 'access', 'system'],
       level: 'all',
     },
     error: {
