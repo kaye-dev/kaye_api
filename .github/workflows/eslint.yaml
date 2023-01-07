@@ -1,0 +1,28 @@
+name: ESLint
+
+on: push
+
+jobs:
+  eslint-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Install npm
+        run: npm install
+
+      - name: Run ESlint
+        run: npm run eslint
+
+      - name: Run build
+        run: npm run build
