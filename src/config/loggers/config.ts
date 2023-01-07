@@ -21,7 +21,6 @@ configure({
       type: 'dateFile',
       filename: 'logs/access.log',
       pattern: '-yyyy-MM-dd',
-      layout: { type: 'json', separator: ',' },
     },
     system: {
       type: 'dateFile',

@@ -1,6 +1,6 @@
 import express from 'express';
 import { app } from './config/router';
-import './config/loggerConfig';
+import './config/loggers/config';
 
 const PORT = 3000;
 app.use(express.json());
