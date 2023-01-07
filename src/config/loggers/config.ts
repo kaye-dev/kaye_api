@@ -40,10 +40,10 @@ configure({
       appenders: ['console', 'access', 'system'],
       level: 'all',
     },
-    error: {
-      appenders: ['console', 'error'],
-      level: 'warn',
-      enableCallStack: true,
-    },
+    // error: {
+    //   appenders: ['console', 'error'],
+    //   level: 'warn',
+    //   enableCallStack: true,
+    // },
   },
 });
