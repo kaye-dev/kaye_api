@@ -11,10 +11,9 @@ export const controllerLogFormat = (controllerAction: string, ip: string, refere
   return `controller\n[Controller]: ${controllerAction}\n[IP] ${ip}\n[Referer] ${referer}`;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const logging = (logging: any) => {
+export const logging = (logs: { [key: string]: string }) => {
   const dt = new Date();
   const event = { event_at: loggingDate(dt) };
   // Format and output with two-space indentation (indent: 2)
-  console.log(JSON.stringify({ ...logging, ...event }, null, 2));
+  console.log(JSON.stringify({ ...logs, ...event }, null, 2));
 };

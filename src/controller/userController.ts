@@ -26,7 +26,7 @@ export class UserControllerImpl implements UserController {
   async getById(req: Request, res: Response) {
     console.log(`req.params.id: ${req.params.id}`);
 
-    const result = {
+    const logs = {
       id: 'uid_0001',
       family_name: 'justin',
       first_name: 'kaye',
@@ -36,8 +36,8 @@ export class UserControllerImpl implements UserController {
       created_date: '2020-10-25 12:30:18',
       updated_date: '2020-10-25 12:30:18',
     };
-    logging(result);
-    return res.status(200).json(result);
+    logging(logs);
+    return res.status(200).json(logs);
   }
   async create(req: Request, res: Response) {
     return res.status(204).send({ status: 'success create' });
