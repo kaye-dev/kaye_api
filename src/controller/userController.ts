@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { UserController } from '../domain/controller/UserController';
+import { logging } from '../config/loggers/util';
 
 export class UserControllerImpl implements UserController {
   async fetch(req: Request, res: Response) {
@@ -25,14 +26,18 @@ export class UserControllerImpl implements UserController {
   async getById(req: Request, res: Response) {
     console.log(`req.params.id: ${req.params.id}`);
 
-    return res.status(200).send({
+    const result = {
       id: 'uid_0001',
       family_name: 'justin',
       first_name: 'kaye',
       display_name: 'kaye',
       email: 'j-kaye@sample.com',
       tel: '09012345678',
-    });
+      created_date: '2020-10-25 12:30:18',
+      updated_date: '2020-10-25 12:30:18',
+    };
+    logging(result);
+    return res.status(200).json(result);
   }
   async create(req: Request, res: Response) {
     return res.status(204).send({ status: 'success create' });

@@ -9,3 +9,9 @@ export const getReferer = (referer?: string): string => {
 export const controllerLogFormat = (controllerAction: string, ip: string, referer: string): string => {
   return `controller\n[Controller]: ${controllerAction}\n[IP] ${ip}\n[Referer] ${referer}`;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const logging = (logging: any) => {
+  // Format and output with two-space indentation (indent: 2)
+  console.log(JSON.stringify(logging, null, 2));
+};
