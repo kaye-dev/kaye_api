@@ -1,4 +1,4 @@
-create table users(
+create table admins(
   id integer not null,
   family_name varchar(30),
   first_name varchar(30),
