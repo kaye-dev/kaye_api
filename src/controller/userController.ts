@@ -17,6 +17,10 @@ export class UserControllerImpl implements UserController {
       // await pool.query(querystring);
 
       const query = await pool.query('select * from users');
+      console.log('query.oid', query.oid);
+      console.log('query.fields', query.fields);
+      console.log('query.command', query.command);
+      console.log('query.rowCount', query.rowCount);
       return res.status(200).json(query.rows);
     } catch (err) {
       return res.status(404).json({ message: 'Error: ' + err.message });
