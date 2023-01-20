@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { UserController } from '../domain/controller/UserController';
 import { logging } from '../config/loggers/util';
 import { pool } from '../config/db';
-import { UserDecorator } from '../decorators/userDecorator';
+import { UserDecoratorImpl } from '../decorators/userDecorator';
 
 type User = {
   id: number;
@@ -16,7 +16,7 @@ const userInfo = {
 };
 export class UserControllerImpl implements UserController {
   async fetch(req: Request, res: Response) {
-    const fullName = new UserDecorator(userInfo).getFullName();
+    const fullName = new UserDecoratorImpl(userInfo).getFullName();
     console.log('fullName:', fullName);
     try {
       const query = await pool.query<User>('select * from users');

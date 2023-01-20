@@ -1,3 +1,5 @@
+import { singleton } from 'tsyringe';
+
 type UserDecoratorModel = {
   family_name: string;
   first_name: string;
@@ -5,7 +7,8 @@ type UserDecoratorModel = {
   age: number;
 };
 
-export class UserDecorator {
+@singleton()
+export class UserDecoratorImpl {
   family_name: string;
   first_name: string;
   display_name: string;
