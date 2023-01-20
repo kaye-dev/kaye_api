@@ -1,12 +1,10 @@
 import express, { Application, Request, Response } from 'express';
-import { AdminControllerImpl } from '../controller/adminController';
 import { UserControllerImpl } from '../controller/userController';
 import { address } from 'ip';
 import { getLogger } from 'log4js';
 import { loggerKind } from './loggers/util';
 
 // controllers
-const adminController = new AdminControllerImpl();
 const userController = new UserControllerImpl();
 
 export const app: Application = express();
@@ -23,11 +21,9 @@ app.use((req: Request, _: Response, next) => {
 
 // fetch
 app.get('/v1/users', userController.fetch);
-app.get('/v1/admins', adminController.fetch);
 
 // getById
 app.get('/v1/users/:id', userController.getById);
-app.get('/v1/admins/:id', adminController.getById);
 
 // create
 
