@@ -1,9 +1,10 @@
 import { Pool } from 'pg';
+import 'dotenv/config';
 
 export const pool = new Pool({
-  database: 'kaye_development',
-  user: 'kaye',
-  password: '',
+  database: process.env.DATABASE_NAME,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
   port: 5432,
   // ssl: true,
   max: 10,
