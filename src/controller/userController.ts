@@ -6,16 +6,6 @@ import { pool } from '../config/db';
 export class UserControllerImpl implements UserController {
   async fetch(req: Request, res: Response) {
     try {
-      // const querystring = 'INSERT INTO users(id, display_name) VALUES($1, $2) RETURNING *';
-      // const params = [4, 'bbb'];
-      // await pool.query(querystring, params);
-
-      // const querystring = {
-      //   text: 'INSERT INTO users(id, display_name) VALUES($1, $2)',
-      //   values: [5, 'ccc'],
-      // };
-      // await pool.query(querystring);
-
       const query = await pool.query('select * from users');
       console.log('query.oid', query.oid);
       console.log('query.fields', query.fields);
