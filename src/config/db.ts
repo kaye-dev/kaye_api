@@ -4,12 +4,12 @@ import kenx from 'knex';
 export const dbConnection = () =>
   kenx({
     client: 'pg',
-    version: '14.6',
+    version: '12',
     connection: {
       host: '127.0.0.1',
       port: 5432,
-      user: 'kaye',
-      password: '',
-      database: 'kaye_db',
+      user: 'postgres',
+      password: 'postgres',
+      database: 'kaye_development',
     },
   });
