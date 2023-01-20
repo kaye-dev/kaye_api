@@ -15,6 +15,7 @@
     "lint": "eslint src . --ext .js,.ts,.tsx --cache",
     "format": "eslint --fix . --ext .js,.ts,.tsx --fix --cache",
     "eslint": "npm run format && npm run lint",
+    "migrate": "node-pg-migrate",
     "migrate:create": "node-pg-migrate create",
     "migrate:red": "DATABASE_URL=postgres://kaye:@localhost:5432/kaye_development node-pg-migrate redo",
     "migrate:dev": "DATABASE_URL=postgres://kaye:@localhost:5432/kaye_development node-pg-migrate up",
