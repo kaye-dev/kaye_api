@@ -3,10 +3,14 @@ import { UserController } from '../domain/controller/UserController';
 import { logging } from '../config/loggers/util';
 import { pool } from '../config/db';
 
+type User = {
+  id: number;
+  display_name: string;
+};
 export class UserControllerImpl implements UserController {
   async fetch(req: Request, res: Response) {
     try {
-      const query = await pool.query('select * from users');
+      const query = await pool.query<User>('select * from users');
       console.log('query.oid', query.oid);
       console.log('query.fields', query.fields);
       console.log('query.command', query.command);
