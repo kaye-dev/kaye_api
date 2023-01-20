@@ -2,7 +2,37 @@
 
 ## Setup
 
-xxx
+## Commands
+
+### Docker
+
+start app
+
+```zsh
+docker-compose up -d
+```
+
+access to container
+
+```zsh
+docker exec -it kaye_api /bin/bash
+docker exec -it kaye_db /bin/bash
+docker exec -it kaye_db_test /bin/bash
+```
+
+### DB migration
+
+```zsh
+# generate migration file
+npm run migrate:create
+
+# redo migration
+npm run migrate:red
+
+# migrate to file
+npm run migrate:dev
+npm run migrate:prod
+```
 
 ## FYI
 

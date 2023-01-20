@@ -1,10 +1,35 @@
 version: '3.8'
 services:
+  db:
+    image: postgres:12
+    container_name: kaye_db
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - '50000:5432'
+    environment:
+      POSTGRES_DB: kaye_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  db_test:
+    image: postgres:12
+    container_name: kaye_db_test
+    volumes:
+      - ./db_test:/var/lib/postgresql/data
+    ports:
+      - '50001:5432'
+    environment:
+      POSTGRES_DB: kaye_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
   backend:
     container_name: kaye_api
     build: .
     tty: true
-    env_file: .env
+    # env_file: .env
+    depends_on:
+      - db
+      - db_test
     environment:
       TZ: Asia/Tokyo
       PROJECT_ID: $PROJECT_ID
