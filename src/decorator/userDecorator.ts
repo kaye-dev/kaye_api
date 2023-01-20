@@ -1,4 +1,5 @@
 import { singleton } from 'tsyringe';
+import { UserDecorator } from '../domain/decorator/userDecorator';
 
 type UserDecoratorModel = {
   family_name: string;
@@ -8,7 +9,7 @@ type UserDecoratorModel = {
 };
 
 @singleton()
-export class UserDecoratorImpl {
+export class UserDecoratorImpl implements UserDecorator {
   family_name: string;
   first_name: string;
   display_name: string;
