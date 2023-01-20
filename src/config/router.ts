@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from 'express';
-import { UserControllerImpl } from '../controller/userController';
+import { UserControllerImpl } from '../controllers/userController';
 import { address } from 'ip';
 import { getLogger } from 'log4js';
 import { loggerKind } from './loggers/util';

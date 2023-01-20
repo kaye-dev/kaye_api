@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 import { di } from './constants';
-import { UserDecoratorImpl } from '../decorator/userDecorator';
+import { UserDecoratorImpl } from '../decorators/userDecorator';
 
 export const registerDependencies = () => {
   container.register(di.UserDecorator, {

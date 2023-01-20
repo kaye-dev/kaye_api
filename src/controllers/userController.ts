@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { UserController } from '../domain/controller/UserController';
+import { UserController } from '../domains/controllers/UserController';
 import { logging } from '../config/loggers/util';
 import { pool } from '../config/db';
-import { UserDecoratorImpl } from '../decorator/userDecorator';
+import { UserDecoratorImpl } from '../decorators/userDecorator';
 
 type User = {
   id: number;

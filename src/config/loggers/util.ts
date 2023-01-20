@@ -1,4 +1,4 @@
-import { loggingDate } from '../../util/dataFormat';
+import { loggingDate } from '../../utils/dataFormat';
 
 export type AccessLogInfo = {
   /**

@@ -1,5 +1,5 @@
 import { singleton } from 'tsyringe';
-import { UserDecorator } from '../domain/decorator/userDecorator';
+import { UserDecorator } from '../domains/decorators/userDecorator';
 
 type UserDecoratorModel = {
   family_name: string;
