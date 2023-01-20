@@ -1,27 +1,16 @@
 import { Request, Response } from 'express';
 import { UserController } from '../domain/controller/UserController';
 import { logging } from '../config/loggers/util';
+import { pool } from '../config/db';
 
 export class UserControllerImpl implements UserController {
   async fetch(req: Request, res: Response) {
-    return res.status(200).send([
-      {
-        id: 'uid_0001',
-        family_name: 'suzuki',
-        first_name: 'taro',
-        display_name: 'taro',
-        email: 'suzuki-taro@sample.com',
-        tel: '07012345678',
-      },
-      {
-        id: 'uid_0002',
-        family_name: 'matsu',
-        first_name: 'yuu',
-        display_name: 'yuu',
-        email: 'matsu-yuu@sample.com',
-        tel: '08012345678',
-      },
-    ]);
+    try {
+      const query = await pool.query('select * from users');
+      return res.status(200).json(query.rows);
+    } catch (err) {
+      return res.status(404).json({ message: 'Error: ' + err.message });
+    }
   }
   async getById(req: Request, res: Response) {
     console.log(`req.params.id: ${req.params.id}`);
