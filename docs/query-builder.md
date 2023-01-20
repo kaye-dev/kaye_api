@@ -2,7 +2,7 @@
 
 ## Sample code
 
-### INSERT
+### insert query
 
 ```ts
 const querystring = 'INSERT INTO users(id, display_name) VALUES($1, $2) RETURNING *';
