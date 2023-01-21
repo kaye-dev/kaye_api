@@ -2,6 +2,8 @@ import { container } from 'tsyringe';
 import { dic, did, dim, dis } from './constants';
 import { UserDecoratorImpl } from '../decorators/userDecorator';
 import { UserControllerImpl } from '../controllers/userController';
+import { UserModelImpl } from '../models/userModel';
+import { UserSerializerImpl } from '../serializers/userSerializer';
 
 export const registerDependencies = () => {
   // controllers
@@ -11,7 +13,7 @@ export const registerDependencies = () => {
 
   // models
   container.register(dim.UserModel, {
-    useClass: UserDecoratorImpl,
+    useClass: UserModelImpl,
   });
 
   // decorators
@@ -21,6 +23,6 @@ export const registerDependencies = () => {
 
   // serializers
   container.register(dis.UserSerializer, {
-    useClass: UserDecoratorImpl,
+    useClass: UserSerializerImpl,
   });
 };
