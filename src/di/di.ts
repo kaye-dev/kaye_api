@@ -1,11 +1,12 @@
 import { container } from 'tsyringe';
 import { dic, did, dim, dis } from './constants';
 import { UserDecoratorImpl } from '../decorators/userDecorator';
+import { UserControllerImpl } from '../controllers/userController';
 
 export const registerDependencies = () => {
   // controllers
   container.register(dic.UserController, {
-    useClass: UserDecoratorImpl,
+    useClass: UserControllerImpl,
   });
 
   // models
