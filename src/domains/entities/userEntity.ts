@@ -1,4 +1,4 @@
-export type Admin = {
+export type UserEntity = {
   id: number;
   family_name: string;
   first_name: string;

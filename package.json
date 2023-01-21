@@ -18,8 +18,7 @@
     "migrate": "node-pg-migrate",
     "migrate:create": "node-pg-migrate create",
     "migrate:red": "DATABASE_URL=postgres://kaye:@localhost:5432/kaye_development node-pg-migrate redo",
-    "migrate:dev": "DATABASE_URL=postgres://kaye:@localhost:5432/kaye_development node-pg-migrate up",
-    "migrate:prod": "DATABASE_URL=postgres://kaye:password@localhost:5432/kaye_development node-pg-migrate up"
+    "migrate:up": "node-pg-migrate up"
   },
   "engines": {
     "node": "16"
@@ -31,7 +30,9 @@
     "ip": "^1.1.8",
     "log4js": "^6.7.1",
     "node-pg-migrate": "^6.2.2",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.7.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.15",
